@@ -1,9 +1,9 @@
 import { FolderIcon, FileIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import type { Folder, File } from "~/lib/mock-data";
+import type { files, folders } from "~/server/db/schema";
 
-export function FileTile(props: { file: File }) {
+export function FileTile(props: { file: typeof files.$inferSelect }) {
   const { file } = props;
 
   return (
@@ -30,7 +30,7 @@ export function FileTile(props: { file: File }) {
 }
 
 export function FolderTile(props: {
-  folder: Folder;
+  folder: typeof folders.$inferSelect;
   handleFolderClick: () => void;
 }) {
   const { folder, handleFolderClick } = props;
